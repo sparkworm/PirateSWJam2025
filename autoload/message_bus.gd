@@ -4,4 +4,5 @@ extends Node
 ## start menu or from completed level.
 signal change_scene(new_scene: PackedScene)
 
+## Signal emitted when the game should be quit
 signal game_quit
