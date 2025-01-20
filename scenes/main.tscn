@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://mjqnkh4ln3w3"]
+[gd_scene load_steps=3 format=3 uid="uid://mjqnkh4ln3w3"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_sc4eb"]
+[ext_resource type="PackedScene" uid="uid://s4hseiqtimda" path="res://scenes/ui/start_menu.tscn" id="2_e3yrm"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_sc4eb")
+starting_scene = ExtResource("2_e3yrm")
 
 [node name="ActiveSceneParent" type="Node" parent="."]

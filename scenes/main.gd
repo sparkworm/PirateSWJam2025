@@ -16,6 +16,7 @@ var active_scene: GameScene
 func _ready() -> void:
 	# connect signals
 	MessageBus.change_scene.connect(Callable(self, "load_scene"))
+	MessageBus.game_quit.connect(Callable(self, "quit_game"))
 
 	if starting_scene != null:
 		load_scene(starting_scene)
@@ -32,3 +33,8 @@ func load_scene(scene: PackedScene) -> void:
 	active_scene_parent.add_child(new_scene)
 	# set active_scene to be a reference to this new active scene
 	active_scene = new_scene
+
+## Function for quitting the game.  May eventually have functionality such as
+## saving progress
+func quit_game() -> void:
+	get_tree().quit()
