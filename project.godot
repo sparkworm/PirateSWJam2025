@@ -11,8 +11,18 @@ config_version=5
 [application]
 
 config/name="PirateSWJam2025"
+run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+MessageBus="*res://autoload/message_bus.gd"
+
+[debug]
+
+gdscript/warnings/unused_signal=0
+gdscript/warnings/untyped_declaration=1
 
 [rendering]
 

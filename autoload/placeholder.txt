@@ -1,0 +1,1 @@
+ Will hold things such as global variables and the message bus that are autoloaded.

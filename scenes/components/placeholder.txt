@@ -1,0 +1,2 @@
+For modular use of reusable components.  I don't think we're going to be going
+hardcore ECS here, but occasionally ECS-like designs can be nice.
