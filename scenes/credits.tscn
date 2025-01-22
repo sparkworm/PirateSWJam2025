@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6000sv3eu08x"]
+
+[ext_resource type="Script" path="res://scenes/info_scene.gd" id="1_dexno"]
+[ext_resource type="PackedScene" uid="uid://s4hseiqtimda" path="res://scenes/ui/start_menu.tscn" id="2_t1w5p"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_etkw2"]
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="Credits" type="Node2D"]
+script = ExtResource("1_dexno")
+next_scene = ExtResource("2_t1w5p")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.0
+offset_top = -154.5
+offset_right = 86.0
+offset_bottom = 154.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Thank you for playing!
+
+Programming:
+Sparkworm
+Vic Cool
+Zentroz
+
+Art:
+DisgustingWeeb
+
+Music: 
+Alessenpai"
+label_settings = SubResource("LabelSettings_etkw2")
+horizontal_alignment = 1
+vertical_alignment = 1
