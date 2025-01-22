@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3eo418lkb5mv"]
+
+[ext_resource type="PackedScene" uid="uid://deng86qdcwpst" path="res://scenes/player_monkey.tscn" id="1_hvt2c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7f38p"]
+size = Vector2(976, 20)
+
+[node name="Temp Level" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Player Monkey" parent="." instance=ExtResource("1_hvt2c")]
+
+[node name="Floor" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(-2, 178)
+shape = SubResource("RectangleShape2D_7f38p")
+one_way_collision_margin = 0.0
