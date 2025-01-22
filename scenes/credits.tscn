@@ -1,14 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6000sv3eu08x"]
+[gd_scene load_steps=3 format=3 uid="uid://b6000sv3eu08x"]
 
 [ext_resource type="Script" path="res://scenes/info_scene.gd" id="1_dexno"]
-[ext_resource type="PackedScene" uid="uid://s4hseiqtimda" path="res://scenes/ui/start_menu.tscn" id="2_t1w5p"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_etkw2"]
 shadow_color = Color(0, 0, 0, 1)
 
 [node name="Credits" type="Node2D"]
 script = ExtResource("1_dexno")
-next_scene = ExtResource("2_t1w5p")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

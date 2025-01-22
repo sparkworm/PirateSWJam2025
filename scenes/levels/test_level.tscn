@@ -17,6 +17,7 @@ position = Vector2(-8, -42)
 [node name="TransitionArea" parent="." index="3" node_paths=PackedStringArray("current_level") instance=ExtResource("3_6uhdw")]
 position = Vector2(-132, 8)
 current_level = NodePath("..")
+next_level = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionArea" index="0"]
 shape = SubResource("RectangleShape2D_byo4s")

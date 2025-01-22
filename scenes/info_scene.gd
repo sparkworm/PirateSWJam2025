@@ -3,7 +3,7 @@
 class_name InfoScene
 extends GameScene
 
-@export var next_scene: PackedScene
+@export var next_scene: Globals.SceneNames
 
 func _process(_delta: float) -> void:
 	# change to next scene if the player accepts
