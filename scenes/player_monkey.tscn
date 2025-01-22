@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://deng86qdcwpst"]
+[gd_scene load_steps=6 format=3 uid="uid://cgs8hg8s1cv6"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_l6r5y"]
 [ext_resource type="Texture2D" uid="uid://bvc5deau428bt" path="res://icon.svg" id="2_vfgvn"]
@@ -13,7 +13,8 @@ size = Vector2(20, 49)
 size = Vector2(42, 44)
 
 [node name="Player Monkey" type="CharacterBody2D"]
-collision_mask = 2
+collision_layer = 2
+collision_mask = 13
 script = ExtResource("1_l6r5y")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -25,7 +26,7 @@ shape = SubResource("RectangleShape2D_ihq7y")
 
 [node name="Platform Check Right" type="Area2D" parent="."]
 position = Vector2(59, 0)
-collision_mask = 2
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform Check Right"]
 position = Vector2(0, 14.5)
@@ -33,7 +34,7 @@ shape = SubResource("RectangleShape2D_kl727")
 
 [node name="Platform Check Left" type="Area2D" parent="."]
 position = Vector2(-58, 0)
-collision_mask = 2
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform Check Left"]
 position = Vector2(0, 14.5)
@@ -41,7 +42,7 @@ shape = SubResource("RectangleShape2D_kl727")
 
 [node name="Punch Hitbox Left" type="Area2D" parent="."]
 position = Vector2(-58, 0)
-collision_layer = 2
+collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Punch Hitbox Left"]
@@ -49,7 +50,7 @@ shape = SubResource("RectangleShape2D_mc644")
 
 [node name="Punch Hitbox Right" type="Area2D" parent="."]
 position = Vector2(59, 0)
-collision_layer = 2
+collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Punch Hitbox Right"]
