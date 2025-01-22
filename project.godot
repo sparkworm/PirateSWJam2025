@@ -25,6 +25,13 @@ Globals="*res://autoload/globals.gd"
 gdscript/warnings/unused_signal=0
 gdscript/warnings/untyped_declaration=1
 
+[layer_names]
+
+2d_physics/layer_1="Terrain"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="Enemy"
+2d_physics/layer_4="Projectile"
+
 [rendering]
 
 renderer/rendering_method="mobile"
