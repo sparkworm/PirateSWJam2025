@@ -4,6 +4,7 @@
 
 [node name="StartMenu" type="Node2D"]
 script = ExtResource("1_uraag")
+start_level = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

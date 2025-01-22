@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=4 uid="uid://rgfxe462n1p7"]
+[gd_scene load_steps=5 format=4 uid="uid://rgfxe462n1p7"]
 
 [ext_resource type="PackedScene" uid="uid://523qqunlol8" path="res://scenes/parent/level.tscn" id="1_ywwx2"]
 [ext_resource type="PackedScene" uid="uid://cgs8hg8s1cv6" path="res://scenes/player_monkey.tscn" id="2_mbmha"]
+[ext_resource type="PackedScene" uid="uid://dywtpvst4t4y8" path="res://scenes/components/transition_area.tscn" id="3_6uhdw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_byo4s"]
 
 [node name="TestLevel" instance=ExtResource("1_ywwx2")]
 
@@ -10,3 +13,10 @@ tile_map_data = PackedByteArray("AAD+/wIAAAAAAAAAAAD//wIAAAAAAAAAAAD//wEAAAAAAAA
 
 [node name="Player Monkey" parent="." index="2" instance=ExtResource("2_mbmha")]
 position = Vector2(-8, -42)
+
+[node name="TransitionArea" parent="." index="3" node_paths=PackedStringArray("current_level") instance=ExtResource("3_6uhdw")]
+position = Vector2(-132, 8)
+current_level = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionArea" index="0"]
+shape = SubResource("RectangleShape2D_byo4s")

@@ -4,7 +4,7 @@ class_name Main
 extends Node
 
 ## The first scene the player will see when the game is launched.
-@export var starting_scene: PackedScene
+@export var starting_scene: Globals.SceneNames
 
 ## The current active game scene.
 var active_scene: GameScene
@@ -21,15 +21,20 @@ func _ready() -> void:
 	if starting_scene != null:
 		load_scene(starting_scene)
 
-func load_scene(scene: PackedScene) -> void:
+func load_scene(scene_name: Globals.SceneNames) -> void:
 	# Remove active scene.  There shouldn't be more than one, but for-loop
 	# is there for flexibility
 	# NOTE: may want to move this to seperate function if such an abrupt stop
 	# isn't ideal
+	var scene: PackedScene
+	if not Globals.game_scenes.has(scene_name):
+		print("ERROR: scene", scene_name, " does not exist.")
+		return
+		
 	for child: Node in active_scene_parent.get_children():
-		active_scene_parent.remove_child(child)
+		active_scene_parent.call_deferred("remove_child", child)
 	# add scene
-	var new_scene: GameScene = scene.instantiate()
+	var new_scene: GameScene = Globals.game_scenes[scene_name].instantiate()
 	active_scene_parent.add_child(new_scene)
 	# set active_scene to be a reference to this new active scene
 	active_scene = new_scene
