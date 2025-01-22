@@ -18,6 +18,8 @@ func _update(delta: float) -> void:
 ## State equivalent of _physics_process()
 func _physics_update(delta: float) -> void:
 	target = target as CharacterBody2D
-	if not target.is_on_floor():
-		state_machine.change_state_to(grounded_state)
+
 	target.velocity += target.get_gravity() * delta
+	target.move_and_slide()
+	if target.is_on_floor():
+		state_machine.change_state_to(grounded_state)
