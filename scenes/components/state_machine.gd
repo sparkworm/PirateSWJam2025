@@ -13,6 +13,9 @@ func _ready() -> void:
 	for state: State in get_children():
 		state.target = target
 		state.state_machine = self
+	# if no active state is specified, choose the first child
+	if active_state == null:
+		active_state = get_child(0)
 	active_state._enter({})
 
 func _process(delta: float) -> void:
