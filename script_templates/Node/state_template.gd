@@ -1,10 +1,14 @@
-## Parent class for an individual state in the state machine.  Maintains control
-## until it switches to another state.
 extends State
 
+## Called when state is first loaded
+func _ready() -> void:
+	pass
+
+## Called every time state is entered
 func _enter(args: Dictionary) -> void:
 	pass
 
+## Called every time there is a switch to a new state
 func _exit() -> void:
 	pass
 
