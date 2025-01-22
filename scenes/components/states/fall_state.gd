@@ -5,14 +5,14 @@ extends State
 
 @export var grounded_state: State
 
-func _enter(args: Dictionary) -> void:
+func _enter(_args: Dictionary) -> void:
 	pass
 
 func _exit() -> void:
 	pass
 
 ## State equivalent of _process()
-func _update(delta: float) -> void:
+func _update(_delta: float) -> void:
 	pass
 
 ## State equivalent of _physics_process()

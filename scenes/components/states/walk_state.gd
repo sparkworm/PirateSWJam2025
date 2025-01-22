@@ -35,7 +35,7 @@ func _exit() -> void:
 	punch_detect_l.body_entered.disconnect(Callable(self, "handle_punch"))
 
 ## State equivalent of _process()
-func _update(delta: float) -> void:
+func _update(_delta: float) -> void:
 	target = target as CharacterBody2D
 	# if somehow in air, fall
 	if not target.is_on_floor():

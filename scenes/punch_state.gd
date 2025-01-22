@@ -19,9 +19,9 @@ func _exit() -> void:
 	pass
 
 ## State equivalent of _process()
-func _update(delta: float) -> void:
+func _update(_delta: float) -> void:
 	pass
 
 ## State equivalent of _physics_process()
-func _physics_update(delta: float) -> void:
+func _physics_update(_delta: float) -> void:
 	pass

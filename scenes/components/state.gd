@@ -8,16 +8,16 @@ var target: Node
 ## The state machine controlling this state
 var state_machine: StateMachine
 
-func _enter(args: Dictionary) -> void:
+func _enter(_args: Dictionary) -> void:
 	pass
 
 func _exit() -> void:
 	pass
 
 ## State equivalent of _process()
-func _update(delta: float) -> void:
+func _update(_delta: float) -> void:
 	pass
 
 ## State equivalent of _physics_process()
-func _physics_update(delta: float) -> void:
+func _physics_update(_delta: float) -> void:
 	pass

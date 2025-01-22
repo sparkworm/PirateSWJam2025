@@ -26,7 +26,6 @@ func load_scene(scene_name: Globals.SceneNames) -> void:
 	# is there for flexibility
 	# NOTE: may want to move this to seperate function if such an abrupt stop
 	# isn't ideal
-	var scene: PackedScene
 	if not Globals.game_scenes.has(scene_name):
 		print("ERROR: scene", scene_name, " does not exist.")
 		return
