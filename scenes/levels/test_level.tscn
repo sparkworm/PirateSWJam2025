@@ -16,9 +16,6 @@ tile_map_data = PackedByteArray("AAD+/wIAAAAAAAAAAAD//wIAAAAAAAAAAAD//wEAAAAAAAA
 position = Vector2(-8, -42)
 
 [node name="Lasso" parent="Player Monkey" index="7" instance=ExtResource("3_n7jwp")]
-gravity = 100.0
-launch_speed = 5.0
-max_length = 100.0
 
 [node name="TransitionArea" parent="." index="3" node_paths=PackedStringArray("current_level") instance=ExtResource("3_6uhdw")]
 position = Vector2(-162, -69)

@@ -4,6 +4,7 @@ extends State
 var tip_velocity: Vector2
 
 @export var attached_state: State
+@export var retract_state: State
 
 @export var lasso: Lasso
 @export var tip: Area2D
@@ -14,23 +15,26 @@ func _ready() -> void:
 
 ## Called every time state is entered
 func _enter(args: Dictionary) -> void:
-	tip_velocity = lasso.get_local_mouse_position()*lasso.launch_speed
+	tip_velocity = lasso.get_local_mouse_position().normalized()*lasso.launch_speed
 	tip.body_entered.connect(Callable(self, "handle_collision"))
 
 ## Called every time there is a switch to a new state
 func _exit() -> void:
-	pass
+	tip.body_entered.disconnect(Callable(self, "handle_collision"))
 
 ## State equivalent of _process()
 func _update(delta: float) -> void:
-	pass
+	if Input.is_action_just_pressed("throw_lasso"):
+		state_machine.change_state_to(retract_state)
 
 ## State equivalent of _physics_process()
 func _physics_update(delta: float) -> void:
 	tip.position += tip_velocity * delta
+	$"../../Sprite2D".position = tip.position
 	if tip.position.length() > lasso.max_length:
 		tip.position = tip.position.normalized() * lasso.max_length
-		tip_velocity = Vector2.ZERO
+		# remove the portion of velocity that would be stopped by the lasso
+		tip_velocity -= tip_velocity.project(tip.position)
 	lasso.update_end_point()
 	tip_velocity.y += lasso.gravity * delta
 

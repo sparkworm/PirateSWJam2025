@@ -1,11 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://ccfh07wlu1ud1"]
+[gd_scene load_steps=10 format=3 uid="uid://ccfh07wlu1ud1"]
 
 [ext_resource type="Script" path="res://scenes/components/lasso.gd" id="1_rgynt"]
 [ext_resource type="PackedScene" uid="uid://4p02o30lob6c" path="res://scenes/components/state_machine.tscn" id="2_hobia"]
 [ext_resource type="Script" path="res://scenes/components/states/unthrown_state.gd" id="3_2ov8f"]
+[ext_resource type="Script" path="res://scenes/components/states/lure_state.gd" id="3_bn7sn"]
 [ext_resource type="Script" path="res://scenes/components/states/launch_state.gd" id="3_kw2d8"]
 [ext_resource type="Script" path="res://scenes/components/states/retract_state.gd" id="5_ehs42"]
 [ext_resource type="Script" path="res://scenes/components/states/attached_state.gd" id="6_ble7t"]
+[ext_resource type="Texture2D" uid="uid://bvc5deau428bt" path="res://icon.svg" id="8_y57fl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rfrwn"]
 
@@ -15,15 +17,25 @@ width = 5.0
 default_color = Color(0, 0.67451, 0, 1)
 script = ExtResource("1_rgynt")
 
-[node name="StateMachine" parent="." instance=ExtResource("2_hobia")]
+[node name="StateMachine" parent="." node_paths=PackedStringArray("target", "active_state") instance=ExtResource("2_hobia")]
+target = NodePath("..")
+active_state = NodePath("UnthrownState")
 
-[node name="UnthrownState" type="Node" parent="StateMachine" node_paths=PackedStringArray("launch_state")]
+[node name="LureState" type="Node" parent="StateMachine" node_paths=PackedStringArray("lasso", "tip", "idle_state")]
+script = ExtResource("3_bn7sn")
+lasso = NodePath("../..")
+tip = NodePath("../../Tip")
+idle_state = NodePath("../UnthrownState")
+
+[node name="UnthrownState" type="Node" parent="StateMachine" node_paths=PackedStringArray("launch_state", "lure_state")]
 script = ExtResource("3_2ov8f")
 launch_state = NodePath("../LaunchState")
+lure_state = NodePath("../LureState")
 
-[node name="LaunchState" type="Node" parent="StateMachine" node_paths=PackedStringArray("attached_state", "lasso", "tip")]
+[node name="LaunchState" type="Node" parent="StateMachine" node_paths=PackedStringArray("attached_state", "retract_state", "lasso", "tip")]
 script = ExtResource("3_kw2d8")
 attached_state = NodePath("../AttachedState")
+retract_state = NodePath("../RetractState")
 lasso = NodePath("../..")
 tip = NodePath("../../Tip")
 
@@ -31,8 +43,11 @@ tip = NodePath("../../Tip")
 script = ExtResource("6_ble7t")
 retract_state = NodePath("../RetractState")
 
-[node name="RetractState" type="Node" parent="StateMachine"]
+[node name="RetractState" type="Node" parent="StateMachine" node_paths=PackedStringArray("lasso", "unthrown_state", "tip")]
 script = ExtResource("5_ehs42")
+lasso = NodePath("../..")
+unthrown_state = NodePath("../UnthrownState")
+tip = NodePath("../../Tip")
 
 [node name="Tip" type="Area2D" parent="."]
 collision_layer = 0
@@ -40,3 +55,7 @@ collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tip"]
 shape = SubResource("CircleShape2D_rfrwn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("8_y57fl")
