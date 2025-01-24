@@ -84,9 +84,10 @@ punch_detect_l = NodePath("../../Punch Hitbox Left")
 script = ExtResource("6_ywa4d")
 walk_state = NodePath("../WalkState")
 
-[node name="LuredState" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "player")]
+[node name="LuredState" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "fall_state", "player")]
 script = ExtResource("7_j3rwe")
 idle_state = NodePath("../IdleState")
+fall_state = NodePath("../FallState")
 player = NodePath("../..")
 
 [node name="IdleState" type="Node" parent="StateMachine" node_paths=PackedStringArray("lured_state")]

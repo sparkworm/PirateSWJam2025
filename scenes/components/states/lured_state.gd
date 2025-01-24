@@ -2,6 +2,7 @@ class_name LuredState
 extends State
 
 @export var idle_state: State
+@export var fall_state: State
 @export var player: PlayerMonkey
 
 ## The lure that the monkeys are following
@@ -32,6 +33,8 @@ func _physics_update(_delta: float) -> void:
 	else: 
 		player.velocity.x = 0
 	player.move_and_slide()
+	if not player.is_on_floor():
+		state_machine.change_state_to(fall_state)
 
 func handle_lure_retraction(_lure: Node2D) -> void:
 	state_machine.change_state_to(idle_state)
