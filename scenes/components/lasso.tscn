@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ccfh07wlu1ud1"]
+[gd_scene load_steps=9 format=3 uid="uid://ccfh07wlu1ud1"]
 
 [ext_resource type="Script" path="res://scenes/components/lasso.gd" id="1_rgynt"]
 [ext_resource type="PackedScene" uid="uid://4p02o30lob6c" path="res://scenes/components/state_machine.tscn" id="2_hobia"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" path="res://scenes/components/states/launch_state.gd" id="3_kw2d8"]
 [ext_resource type="Script" path="res://scenes/components/states/retract_state.gd" id="5_ehs42"]
 [ext_resource type="Script" path="res://scenes/components/states/attached_state.gd" id="6_ble7t"]
-[ext_resource type="Texture2D" uid="uid://bvc5deau428bt" path="res://icon.svg" id="8_y57fl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rfrwn"]
 
@@ -55,7 +54,3 @@ collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tip"]
 shape = SubResource("CircleShape2D_rfrwn")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("8_y57fl")

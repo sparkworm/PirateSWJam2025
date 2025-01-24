@@ -30,7 +30,6 @@ func _update(delta: float) -> void:
 ## State equivalent of _physics_process()
 func _physics_update(delta: float) -> void:
 	tip.position += tip_velocity * delta
-	$"../../Sprite2D".position = tip.position
 	if tip.position.length() > lasso.max_length:
 		tip.position = tip.position.normalized() * lasso.max_length
 		# remove the portion of velocity that would be stopped by the lasso
