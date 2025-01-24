@@ -1,7 +1,7 @@
+class_name MonkeyIdleState
 extends State
 
-@export var launch_state: State
-@export var lure_state: State
+@export var lured_state: State
 
 ## Called when state is first loaded
 func _ready() -> void:
@@ -9,19 +9,19 @@ func _ready() -> void:
 
 ## Called every time state is entered
 func _enter(_args: Dictionary) -> void:
-	pass
+	MessageBus.lure_deployed.connect(Callable(self, "handle_lure"))
 
 ## Called every time there is a switch to a new state
 func _exit() -> void:
-	pass
+	MessageBus.lure_deployed.disconnect(Callable(self, "handle_lure"))
 
 ## State equivalent of _process()
 func _update(_delta: float) -> void:
-	if Input.is_action_just_pressed("throw_lasso"):
-		state_machine.change_state_to(launch_state)
-	if Input.is_action_pressed("hold_lure"):
-		state_machine.change_state_to(lure_state)
+	pass
 
 ## State equivalent of _physics_process()
 func _physics_update(_delta: float) -> void:
 	pass
+
+func handle_lure(lure: Node2D) -> void:
+	state_machine.change_state_to(lured_state, {"lure":lure})
