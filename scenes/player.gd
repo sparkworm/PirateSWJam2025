@@ -1,5 +1,8 @@
+class_name PlayerMonkey
 extends CharacterBody2D
 
+## The min horizontal displacement of the lure for movement to occur
+@export var lure_deadzone: float = 10
 @export var walk_speed: float  = 300
 @export var jump_force: float = 500
 
