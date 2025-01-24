@@ -29,4 +29,6 @@ func _update(_delta: float) -> void:
 ## State equivalent of _physics_process()
 func _physics_update(_delta: float) -> void:
 	tip.global_position = tip.get_global_mouse_position()
+	tip.position = tip.position.normalized() * min(lasso.max_length, 
+			tip.position.length())
 	lasso.update_end_point()
