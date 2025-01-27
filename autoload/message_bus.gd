@@ -11,3 +11,6 @@ signal game_quit
 signal lure_deployed(lure: Node2D)
 ## signal emitted when a lure is retracted from the level
 signal lure_retracted(lure: Node2D)
+
+## signal emitted to make the monkey grapple with the specified velocity
+signal monkey_grappled(velocity: Vector2)

@@ -7,7 +7,8 @@ extends Line2D
 @export var gravity: float = 150
 @export var launch_speed: float = 300
 @export var retract_speed: float = 200
-@export var max_length: float = 300
+@export var max_length: float = 500
+@export var grapple_v_multiplier: float = 2
 
 var last_tip_pos: Vector2
 

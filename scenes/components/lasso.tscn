@@ -38,9 +38,10 @@ retract_state = NodePath("../RetractState")
 lasso = NodePath("../..")
 tip = NodePath("../../Tip")
 
-[node name="AttachedState" type="Node" parent="StateMachine" node_paths=PackedStringArray("retract_state")]
+[node name="AttachedState" type="Node" parent="StateMachine" node_paths=PackedStringArray("retract_state", "tip")]
 script = ExtResource("6_ble7t")
 retract_state = NodePath("../RetractState")
+tip = NodePath("../../Tip")
 
 [node name="RetractState" type="Node" parent="StateMachine" node_paths=PackedStringArray("lasso", "unthrown_state", "tip")]
 script = ExtResource("5_ehs42")

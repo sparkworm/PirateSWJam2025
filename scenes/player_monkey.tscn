@@ -81,9 +81,11 @@ idle_state = NodePath("../IdleState")
 fall_state = NodePath("../FallState")
 player = NodePath("../..")
 
-[node name="IdleState" type="Node" parent="StateMachine" node_paths=PackedStringArray("lured_state")]
+[node name="IdleState" type="Node" parent="StateMachine" node_paths=PackedStringArray("character", "lured_state", "fall_state")]
 script = ExtResource("8_1pcjl")
+character = NodePath("../..")
 lured_state = NodePath("../LuredState")
+fall_state = NodePath("../FallState")
 
 [node name="WalkState" type="Node" parent="StateMachine" node_paths=PackedStringArray("fall_state", "punch_state", "edge_detect_r", "edge_detect_l", "punch_detect_r", "punch_detect_l")]
 script = ExtResource("4_8f6st")
