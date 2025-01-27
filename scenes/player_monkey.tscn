@@ -71,15 +71,6 @@ active_state = NodePath("FallState")
 script = ExtResource("4_ec2ft")
 grounded_state = NodePath("../IdleState")
 
-[node name="WalkState" type="Node" parent="StateMachine" node_paths=PackedStringArray("fall_state", "punch_state", "edge_detect_r", "edge_detect_l", "punch_detect_r", "punch_detect_l")]
-script = ExtResource("4_8f6st")
-fall_state = NodePath("../FallState")
-punch_state = NodePath("../PunchState")
-edge_detect_r = NodePath("../../Platform Check Right")
-edge_detect_l = NodePath("../../Platform Check Left")
-punch_detect_r = NodePath("../../Punch Hitbox Right")
-punch_detect_l = NodePath("../../Punch Hitbox Left")
-
 [node name="PunchState" type="Node" parent="StateMachine" node_paths=PackedStringArray("walk_state")]
 script = ExtResource("6_ywa4d")
 walk_state = NodePath("../WalkState")
@@ -93,6 +84,15 @@ player = NodePath("../..")
 [node name="IdleState" type="Node" parent="StateMachine" node_paths=PackedStringArray("lured_state")]
 script = ExtResource("8_1pcjl")
 lured_state = NodePath("../LuredState")
+
+[node name="WalkState" type="Node" parent="StateMachine" node_paths=PackedStringArray("fall_state", "punch_state", "edge_detect_r", "edge_detect_l", "punch_detect_r", "punch_detect_l")]
+script = ExtResource("4_8f6st")
+fall_state = NodePath("../FallState")
+punch_state = NodePath("../PunchState")
+edge_detect_r = NodePath("../../Platform Check Right")
+edge_detect_l = NodePath("../../Platform Check Left")
+punch_detect_r = NodePath("../../Punch Hitbox Right")
+punch_detect_l = NodePath("../../Punch Hitbox Left")
 
 [connection signal="body_entered" from="Punch Hitbox Left" to="." method="_on_punch_left_entered"]
 [connection signal="body_entered" from="Punch Hitbox Right" to="." method="_on_punch_right_entered"]
