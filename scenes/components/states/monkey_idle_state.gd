@@ -33,6 +33,8 @@ func _physics_update(delta: float) -> void:
 		target.velocity.x = max(0,abs(target.velocity.x) - drag * delta) * sign
 		print(target.velocity)
 		target.move_and_slide()
+		if not target.is_on_floor():
+			state_machine.change_state_to(fall_state)
 
 func handle_lure(lure: Node2D) -> void:
 	state_machine.change_state_to(lured_state, {"lure":lure})
