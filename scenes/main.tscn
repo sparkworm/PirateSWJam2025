@@ -1,8 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://mjqnkh4ln3w3"]
+[gd_scene load_steps=4 format=3 uid="uid://mjqnkh4ln3w3"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_sc4eb"]
+[ext_resource type="Script" path="res://scenes/music_player.gd" id="2_lvlt3"]
+[ext_resource type="AudioStream" uid="uid://72nnl5boisll" path="res://audio/music/gamejam.wav" id="3_43t8y"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_sc4eb")
 
 [node name="ActiveSceneParent" type="Node" parent="."]
+
+[node name="MusicPlayer" type="Node" parent="."]
+script = ExtResource("2_lvlt3")
+
+[node name="MainSong" type="AudioStreamPlayer" parent="MusicPlayer"]
+stream = ExtResource("3_43t8y")

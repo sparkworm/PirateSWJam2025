@@ -12,11 +12,13 @@ var active_scene: GameScene
 ## Holder of the active scene.
 ## NOTE: Should only every contain one scene
 @onready var active_scene_parent: Node = $ActiveSceneParent
+@onready var music_player: MusicPlayer = $MusicPlayer
 
 func _ready() -> void:
 	# connect signals
 	MessageBus.change_scene.connect(Callable(self, "load_scene"))
 	MessageBus.game_quit.connect(Callable(self, "quit_game"))
+	music_player.play_song(0)
 
 	if starting_scene != null:
 		load_scene(starting_scene)
