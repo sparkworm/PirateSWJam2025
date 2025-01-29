@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://cgs8hg8s1cv6"]
+[gd_scene load_steps=13 format=3 uid="uid://cgs8hg8s1cv6"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_l6r5y"]
 [ext_resource type="Texture2D" uid="uid://bvc5deau428bt" path="res://icon.svg" id="2_vfgvn"]
 [ext_resource type="Script" path="res://scenes/components/state_machine.gd" id="3_ot64u"]
 [ext_resource type="Script" path="res://scenes/components/states/walk_state.gd" id="4_8f6st"]
 [ext_resource type="Script" path="res://scenes/components/states/fall_state.gd" id="4_ec2ft"]
+[ext_resource type="Script" path="res://scenes/components/states/lured_fall_state.gd" id="5_xwlkj"]
 [ext_resource type="Script" path="res://scenes/punch_state.gd" id="6_ywa4d"]
 [ext_resource type="Script" path="res://scenes/components/states/lured_state.gd" id="7_j3rwe"]
 [ext_resource type="Script" path="res://scenes/components/states/monkey_idle_state.gd" id="8_1pcjl"]
@@ -67,8 +68,15 @@ script = ExtResource("3_ot64u")
 target = NodePath("..")
 active_state = NodePath("FallState")
 
-[node name="FallState" type="Node" parent="StateMachine" node_paths=PackedStringArray("grounded_state")]
+[node name="FallState" type="Node" parent="StateMachine" node_paths=PackedStringArray("grounded_state", "lured_fall_state")]
 script = ExtResource("4_ec2ft")
+grounded_state = NodePath("../IdleState")
+lured_fall_state = NodePath("../LuredFallState")
+
+[node name="LuredFallState" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "fall_state", "grounded_state")]
+script = ExtResource("5_xwlkj")
+player = NodePath("../..")
+fall_state = NodePath("../FallState")
 grounded_state = NodePath("../IdleState")
 
 [node name="PunchState" type="Node" parent="StateMachine" node_paths=PackedStringArray("walk_state")]
