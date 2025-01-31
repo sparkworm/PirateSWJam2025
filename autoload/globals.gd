@@ -15,8 +15,8 @@ enum SceneNames {
 var game_scenes: Dictionary = {
 	SceneNames.START_MENU : preload("res://scenes/ui/start_menu.tscn"),
 	SceneNames.TEST_LEVEL : preload("res://scenes/levels/test_level.tscn"),
-	#SceneNames.LEVEL_1,
-	#SceneNames.LEVEL_2,
+	SceneNames.LEVEL_1 : preload("res://scenes/levels/level_1.tscn"),
+	SceneNames.LEVEL_2 : preload("res://scenes/levels/level_2.tscn"),
 	#SceneNames.LEVEL_3,
 	#SceneNames.LEVEL_4,
 	SceneNames.CREDITS : preload("res://scenes/credits.tscn"),

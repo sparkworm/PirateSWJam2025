@@ -226,6 +226,7 @@ grow_vertical = 2
 color = Color(0, 0.715353, 0.717492, 1)
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="CanvasLayer2"]
 tile_set = SubResource("TileSet_4vf0x")
