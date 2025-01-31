@@ -58,15 +58,17 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -338.0
-offset_top = 68.0
-offset_right = 338.0
-offset_bottom = 169.0
+offset_left = -421.0
+offset_top = 38.0
+offset_right = 421.0
+offset_bottom = 243.0
 grow_horizontal = 2
 text = "Welcome to our game :)
 
 To throw vine, left click.  Retracting vine once thrown with RIGHT click will send you flying!!
-To move normally, hold right click to form a lure with the vine.
+
+To move normally, hold right click to form a lure with the vine.  You can also hold right click while in the air to 
+maintain some level  of control of trajectory
 
 Enemies will attack you if you stand in front of them, so ram into them to take them out!"
 label_settings = SubResource("LabelSettings_fse1w")
