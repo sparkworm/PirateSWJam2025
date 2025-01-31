@@ -66,7 +66,9 @@ grow_horizontal = 2
 text = "Welcome to our game :)
 
 To throw vine, left click.  Retracting vine once thrown with RIGHT click will send you flying!!
-To move normally, hold right click to form a lure with the vine."
+To move normally, hold right click to form a lure with the vine.
+
+Enemies will attack you if you stand in front of them, so ram into them to take them out!"
 label_settings = SubResource("LabelSettings_fse1w")
 
 [connection signal="pressed" from="CanvasLayer/Control/PanelContainer/MarginContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]

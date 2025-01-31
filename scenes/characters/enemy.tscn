@@ -1,22 +1,63 @@
-[gd_scene load_steps=5 format=3 uid="uid://c15legxhv8am8"]
+[gd_scene load_steps=8 format=3 uid="uid://c15legxhv8am8"]
 
-[ext_resource type="Texture2D" uid="uid://bvc5deau428bt" path="res://icon.svg" id="1_sucqu"]
 [ext_resource type="Script" path="res://scenes/characters/enemy.gd" id="1_yvrsv"]
+[ext_resource type="Texture2D" uid="uid://dsyjt3m2f12cp" path="res://visuals/sprites/hunter.png" id="2_k5c3i"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_47uxx"]
+height = 48.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_85qbi"]
 size = Vector2(20, 49)
+
+[sub_resource type="Animation" id="Animation_rrr6y"]
+resource_name = "walk"
+loop_mode = 1
+step = 0.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.183333, 0.4, 0.6, 0.766667, 0.966667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_wjbvu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hxsdo"]
+_data = {
+"RESET": SubResource("Animation_wjbvu"),
+"walk": SubResource("Animation_rrr6y")
+}
 
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_yvrsv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 4.76837e-07)
-scale = Vector2(0.15625, 0.234375)
-texture = ExtResource("1_sucqu")
+position = Vector2(0, -18)
+scale = Vector2(-1, 1)
+texture = ExtResource("2_k5c3i")
+hframes = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -11)
 shape = SubResource("CapsuleShape2D_47uxx")
 
 [node name="AttackRay" type="RayCast2D" parent="."]
@@ -41,6 +82,11 @@ shape = SubResource("RectangleShape2D_85qbi")
 
 [node name="AttackTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hxsdo")
+}
 
 [connection signal="body_exited" from="Platform Check Right" to="." method="_on_platform_right_exited"]
 [connection signal="body_exited" from="Platform Check Left" to="." method="_on_platform_left_exited"]
