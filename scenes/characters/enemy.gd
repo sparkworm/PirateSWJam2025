@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 @export var walk_speed: float = 100
 @export var attack_range: float = 100
-@export var attack_time: float = 1
+@export var attack_time: float = 0.75
 
 var direction_x: int = 1
 var direction: float

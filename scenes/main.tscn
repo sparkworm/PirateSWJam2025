@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_sc4eb"]
 [ext_resource type="Script" path="res://scenes/music_player.gd" id="2_lvlt3"]
-[ext_resource type="AudioStream" uid="uid://72nnl5boisll" path="res://audio/music/gamejam.wav" id="3_43t8y"]
+[ext_resource type="AudioStream" uid="uid://qr2vjnmon50x" path="res://audio/music/treetop_tempos.wav" id="3_8va6m"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_sc4eb")
@@ -13,4 +13,4 @@ script = ExtResource("1_sc4eb")
 script = ExtResource("2_lvlt3")
 
 [node name="MainSong" type="AudioStreamPlayer" parent="MusicPlayer"]
-stream = ExtResource("3_43t8y")
+stream = ExtResource("3_8va6m")
