@@ -28,9 +28,9 @@ func _update(_delta: float) -> void:
 ## State equivalent of _physics_process()
 func _physics_update(delta: float) -> void:
 	if player.velocity.x != 0:
-		var sign = player.velocity.x / abs(player.velocity.x)
-		player.velocity.x = max(0,abs(player.velocity.x) - 
-				player.air_drag * delta) * sign
+		var dir: float = player.velocity.x / abs(player.velocity.x)
+		player.velocity.x = max(0,abs(player.velocity.x) -
+				player.air_drag * delta) * dir
 		print(player.velocity)
 	if abs(lure.position.x) > player.lure_deadzone:
 		var lure_direction: int = lure.position.x / abs(lure.position.x)

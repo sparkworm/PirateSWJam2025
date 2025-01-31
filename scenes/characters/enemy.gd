@@ -19,7 +19,7 @@ func _ready() -> void:
 	attack_ray.target_position.x = attack_range
 	animation_player.play("walk")
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not attacking:
 		if attack_ray.is_colliding():
 			charge_attack()
@@ -44,7 +44,7 @@ func execute_attack() -> void:
 		print('killing player')
 		MessageBus.player_killed.emit()
 
-func movement(delta: float) -> void:
+func movement(_delta: float) -> void:
 	# Moving in a direction if on floor
 	if is_on_floor():
 		direction = direction_x * walk_speed
@@ -60,12 +60,12 @@ func apply_gravity(delta: float) -> void:
 	if !is_on_floor():
 		velocity += get_gravity() * delta
 
-func _on_platform_right_exited(body: Node2D) -> void: # Checking for platform edge on right
+func _on_platform_right_exited(_body: Node2D) -> void: # Checking for platform edge on right
 	if !is_on_floor(): return
 	flip_direction()
 
 
-func _on_platform_left_exited(body: Node2D) -> void: # Checking for platform edge on left
+func _on_platform_left_exited(_body: Node2D) -> void: # Checking for platform edge on left
 	if !is_on_floor(): return
 	flip_direction()
 

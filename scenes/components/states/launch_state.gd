@@ -14,7 +14,7 @@ func _ready() -> void:
 	pass
 
 ## Called every time state is entered
-func _enter(args: Dictionary) -> void:
+func _enter(_args: Dictionary) -> void:
 	tip_velocity = lasso.get_local_mouse_position().normalized()*lasso.launch_speed
 	tip.body_entered.connect(Callable(self, "handle_collision"))
 
@@ -23,7 +23,7 @@ func _exit() -> void:
 	tip.body_entered.disconnect(Callable(self, "handle_collision"))
 
 ## State equivalent of _process()
-func _update(delta: float) -> void:
+func _update(_delta: float) -> void:
 	if Input.is_action_just_pressed("throw_lasso"):
 		state_machine.change_state_to(retract_state)
 

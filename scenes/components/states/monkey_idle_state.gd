@@ -27,9 +27,9 @@ func _update(_delta: float) -> void:
 ## State equivalent of _physics_process()
 func _physics_update(delta: float) -> void:
 	if target.velocity.x != 0:
-		var sign = target.velocity.x / abs(target.velocity.x)
+		var dir: float = target.velocity.x / abs(target.velocity.x)
 		target.velocity.x = max(0,abs(target.velocity.x) -
-				target.ground_drag * delta) * sign
+				target.ground_drag * delta) * dir
 		target.move_and_slide()
 		if not target.is_on_floor():
 			state_machine.change_state_to(fall_state)
