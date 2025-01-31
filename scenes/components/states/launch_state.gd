@@ -1,6 +1,8 @@
 class_name LaunchState
 extends State
 
+@onready var launch_sfx: AudioStreamPlayer2D = $"../../SFX/Launch SFX"
+
 var tip_velocity: Vector2
 
 @export var attached_state: State
@@ -17,6 +19,7 @@ func _ready() -> void:
 func _enter(_args: Dictionary) -> void:
 	tip_velocity = lasso.get_local_mouse_position().normalized()*lasso.launch_speed
 	tip.body_entered.connect(Callable(self, "handle_collision"))
+	launch_sfx.play()
 
 ## Called every time there is a switch to a new state
 func _exit() -> void:
