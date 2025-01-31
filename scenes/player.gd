@@ -11,3 +11,8 @@ extends CharacterBody2D
 
 func _ready() -> void:
 	pass
+
+
+func _on_attack_area_body_entered(body: Node2D) -> void:
+	if body is Enemy:
+		body.die()

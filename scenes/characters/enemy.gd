@@ -26,6 +26,9 @@ func _physics_process(delta: float) -> void:
 	if not attacking:
 		movement(delta)
 
+func die() -> void:
+	queue_free()
+
 func charge_attack() -> void:
 	attacking = true
 	attack_timer.start()
