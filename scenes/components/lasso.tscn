@@ -15,6 +15,8 @@ points = PackedVector2Array(0, 0, 0, 0)
 width = 5.0
 default_color = Color(0, 0.67451, 0, 1)
 script = ExtResource("1_rgynt")
+gravity = 300.0
+launch_speed = 1000.0
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("target", "active_state") instance=ExtResource("2_hobia")]
 target = NodePath("..")
