@@ -57,11 +57,7 @@ character = NodePath("../..")
 lured_state = NodePath("../LuredState")
 fall_state = NodePath("../FallState")
 
-[node name="WalkState" type="Node" parent="StateMachine" node_paths=PackedStringArray("fall_state", "punch_state", "edge_detect_r", "edge_detect_l", "punch_detect_r", "punch_detect_l")]
+[node name="WalkState" type="Node" parent="StateMachine" node_paths=PackedStringArray("fall_state", "punch_state")]
 script = ExtResource("4_8f6st")
 fall_state = NodePath("../FallState")
 punch_state = NodePath("../PunchState")
-edge_detect_r = NodePath("")
-edge_detect_l = NodePath("")
-punch_detect_r = NodePath("")
-punch_detect_l = NodePath("")
