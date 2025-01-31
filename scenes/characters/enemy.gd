@@ -31,6 +31,8 @@ func die() -> void:
 
 func charge_attack() -> void:
 	attacking = true
+	var attack_tween: Tween = get_tree().create_tween()
+	attack_tween.tween_property(self, "modulate", Color(1,0,0), attack_time)
 	attack_timer.start()
 
 func execute_attack() -> void:
@@ -68,4 +70,5 @@ func _on_platform_left_exited(body: Node2D) -> void: # Checking for platform edg
 
 func _on_attack_timer_timeout() -> void:
 	execute_attack()
+	modulate = Color(1,1,1)
 	attacking = false
