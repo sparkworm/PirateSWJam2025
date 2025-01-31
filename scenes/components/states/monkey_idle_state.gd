@@ -28,7 +28,7 @@ func _update(_delta: float) -> void:
 func _physics_update(delta: float) -> void:
 	if target.velocity.x != 0:
 		var sign = target.velocity.x / abs(target.velocity.x)
-		target.velocity.x = max(0,abs(target.velocity.x) - 
+		target.velocity.x = max(0,abs(target.velocity.x) -
 				target.ground_drag * delta) * sign
 		target.move_and_slide()
 		if not target.is_on_floor():

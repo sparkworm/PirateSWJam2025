@@ -17,8 +17,9 @@ func _ready() -> void:
 	attack_ray.target_position.x = attack_range
 
 func _process(delta: float) -> void:
-	if attack_ray.is_colliding():
-		charge_attack()
+	if not attacking:
+		if attack_ray.is_colliding():
+			charge_attack()
 
 func _physics_process(delta: float) -> void:
 	apply_gravity(delta)
@@ -31,6 +32,7 @@ func charge_attack() -> void:
 
 func execute_attack() -> void:
 	if attack_ray.is_colliding():
+		print('killing player')
 		MessageBus.player_killed.emit()
 
 func movement(delta: float) -> void:

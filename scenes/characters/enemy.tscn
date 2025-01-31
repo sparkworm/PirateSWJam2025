@@ -40,6 +40,7 @@ position = Vector2(0, 14.5)
 shape = SubResource("RectangleShape2D_85qbi")
 
 [node name="AttackTimer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="body_exited" from="Platform Check Right" to="." method="_on_platform_right_exited"]
 [connection signal="body_exited" from="Platform Check Left" to="." method="_on_platform_left_exited"]

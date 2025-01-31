@@ -2,6 +2,8 @@
 class_name GameScene
 extends Node2D
 
+@export var scene_name: Globals.SceneNames
+
 func _ready() -> void:
 	enter_transition()
 
@@ -12,3 +14,6 @@ func enter_transition() -> void:
 ## Creates exit fade or other effects, then calls a transition to the next level
 func exit_transition(next_level: Globals.SceneNames) -> void:
 	MessageBus.change_scene.emit(next_level)
+
+func reload_scene() -> void:
+	MessageBus.change_scene.emit(scene_name)

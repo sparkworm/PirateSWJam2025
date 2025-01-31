@@ -3,3 +3,6 @@
 ## needn't be any children of the Level class
 class_name Level
 extends GameScene
+
+func _ready() -> void:
+	MessageBus.player_killed.connect(Callable(self, "reload_scene"))
