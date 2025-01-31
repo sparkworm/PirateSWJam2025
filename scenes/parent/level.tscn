@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://523qqunlol8"]
+[gd_scene load_steps=14 format=3 uid="uid://523qqunlol8"]
 
 [ext_resource type="Script" path="res://scenes/parent/level.gd" id="1_0a754"]
 [ext_resource type="Shader" path="res://scenes/parent/background.gdshader" id="2_g1flf"]
@@ -7,8 +7,22 @@
 [ext_resource type="PackedScene" uid="uid://cgs8hg8s1cv6" path="res://scenes/player_monkey.tscn" id="3_i6tjm"]
 [ext_resource type="PackedScene" uid="uid://ccfh07wlu1ud1" path="res://scenes/components/lasso.tscn" id="4_3f5x7"]
 
+[sub_resource type="Gradient" id="Gradient_kw8oj"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_367oh"]
+noise_type = 3
+seed = 1
+frequency = 0.0064
+offset = Vector3(-157.3, 0, 0)
+fractal_octaves = 4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qd1h0"]
+color_ramp = SubResource("Gradient_kw8oj")
+noise = SubResource("FastNoiseLite_367oh")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rfrok"]
 shader = ExtResource("2_g1flf")
+shader_parameter/noise = SubResource("NoiseTexture2D_qd1h0")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qax5c"]
 texture = ExtResource("2_v07ef")
