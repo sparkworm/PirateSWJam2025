@@ -1,10 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://dywtpvst4t4y8"]
+[gd_scene load_steps=5 format=3 uid="uid://dywtpvst4t4y8"]
 
 [ext_resource type="Script" path="res://scenes/components/transition_area.gd" id="1_quix3"]
+[ext_resource type="Shader" path="res://scenes/components/bobble.gdshader" id="2_10vix"]
+[ext_resource type="Texture2D" uid="uid://3ld4s5fnoufx" path="res://visuals/sprites/banana.png" id="2_x5qf2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nrab6"]
+shader = ExtResource("2_10vix")
+shader_parameter/bobble_amnt = 5.0
 
 [node name="TransitionArea" type="Area2D"]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_quix3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_nrab6")
+texture = ExtResource("2_x5qf2")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
