@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cgs8hg8s1cv6"]
+[gd_scene load_steps=11 format=3 uid="uid://cgs8hg8s1cv6"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_l6r5y"]
 [ext_resource type="Texture2D" uid="uid://bvc5deau428bt" path="res://icon.svg" id="2_vfgvn"]
@@ -13,12 +13,6 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ihq7y"]
 size = Vector2(62, 62)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kl727"]
-size = Vector2(20, 49)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mc644"]
-size = Vector2(42, 44)
-
 [node name="Player Monkey" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 13
@@ -30,38 +24,6 @@ texture = ExtResource("2_vfgvn")
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ihq7y")
-
-[node name="Platform Check Right" type="Area2D" parent="."]
-position = Vector2(59, 0)
-collision_layer = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform Check Right"]
-position = Vector2(0, 14.5)
-shape = SubResource("RectangleShape2D_kl727")
-
-[node name="Platform Check Left" type="Area2D" parent="."]
-position = Vector2(-58, 0)
-collision_layer = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform Check Left"]
-position = Vector2(0, 14.5)
-shape = SubResource("RectangleShape2D_kl727")
-
-[node name="Punch Hitbox Left" type="Area2D" parent="."]
-position = Vector2(-58, 0)
-collision_layer = 0
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Punch Hitbox Left"]
-shape = SubResource("RectangleShape2D_mc644")
-
-[node name="Punch Hitbox Right" type="Area2D" parent="."]
-position = Vector2(59, 0)
-collision_layer = 0
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Punch Hitbox Right"]
-shape = SubResource("RectangleShape2D_mc644")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("target", "active_state")]
 script = ExtResource("3_ot64u")
@@ -99,10 +61,7 @@ fall_state = NodePath("../FallState")
 script = ExtResource("4_8f6st")
 fall_state = NodePath("../FallState")
 punch_state = NodePath("../PunchState")
-edge_detect_r = NodePath("../../Platform Check Right")
-edge_detect_l = NodePath("../../Platform Check Left")
-punch_detect_r = NodePath("../../Punch Hitbox Right")
-punch_detect_l = NodePath("../../Punch Hitbox Left")
-
-[connection signal="body_entered" from="Punch Hitbox Left" to="." method="_on_punch_left_entered"]
-[connection signal="body_entered" from="Punch Hitbox Right" to="." method="_on_punch_right_entered"]
+edge_detect_r = NodePath("")
+edge_detect_l = NodePath("")
+punch_detect_r = NodePath("")
+punch_detect_l = NodePath("")
