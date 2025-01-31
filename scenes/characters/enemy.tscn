@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://c15legxhv8am8"]
+
+[ext_resource type="Texture2D" uid="uid://bvc5deau428bt" path="res://icon.svg" id="1_sucqu"]
+[ext_resource type="Script" path="res://scenes/characters/enemy.gd" id="1_yvrsv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_47uxx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_85qbi"]
+size = Vector2(20, 49)
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_yvrsv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 4.76837e-07)
+scale = Vector2(0.15625, 0.234375)
+texture = ExtResource("1_sucqu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_47uxx")
+
+[node name="AttackRay" type="RayCast2D" parent="."]
+target_position = Vector2(100, 0)
+collision_mask = 2
+
+[node name="Platform Check Right" type="Area2D" parent="."]
+position = Vector2(59, 0)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform Check Right"]
+position = Vector2(0, 14.5)
+shape = SubResource("RectangleShape2D_85qbi")
+
+[node name="Platform Check Left" type="Area2D" parent="."]
+position = Vector2(-58, 0)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform Check Left"]
+position = Vector2(0, 14.5)
+shape = SubResource("RectangleShape2D_85qbi")
+
+[node name="AttackTimer" type="Timer" parent="."]
+
+[connection signal="body_exited" from="Platform Check Right" to="." method="_on_platform_right_exited"]
+[connection signal="body_exited" from="Platform Check Left" to="." method="_on_platform_left_exited"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

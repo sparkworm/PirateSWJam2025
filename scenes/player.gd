@@ -9,9 +9,6 @@ extends CharacterBody2D
 @export var air_drag: float = 50
 @export var ground_drag: float = 500
 
-var direction_x: int = 1
-var direction: float
-
 func _ready() -> void:
 	pass
 

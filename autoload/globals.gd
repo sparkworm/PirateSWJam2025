@@ -10,7 +10,7 @@ enum SceneNames {
 	CREDITS,
 }
 
-## Array storing all GameScenes.  This prevents circular references and 
+## Array storing all GameScenes.  This prevents circular references and
 ## issues with dependencies.
 var game_scenes: Dictionary = {
 	SceneNames.START_MENU : preload("res://scenes/ui/start_menu.tscn"),

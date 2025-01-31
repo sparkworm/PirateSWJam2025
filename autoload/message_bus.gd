@@ -14,3 +14,5 @@ signal lure_retracted(lure: Node2D)
 
 ## signal emitted to make the monkey grapple with the specified velocity
 signal monkey_grappled(velocity: Vector2)
+
+signal player_killed()

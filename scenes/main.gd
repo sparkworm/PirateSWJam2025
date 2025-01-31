@@ -31,7 +31,7 @@ func load_scene(scene_name: Globals.SceneNames) -> void:
 	if not Globals.game_scenes.has(scene_name):
 		print("ERROR: scene", scene_name, " does not exist.")
 		return
-		
+
 	for child: Node in active_scene_parent.get_children():
 		active_scene_parent.call_deferred("remove_child", child)
 	# add scene
